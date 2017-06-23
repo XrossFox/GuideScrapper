@@ -1,4 +1,4 @@
-GuideScrap
+GuideScrapper
 
 For those times you just want to download a guide as PDF
 
