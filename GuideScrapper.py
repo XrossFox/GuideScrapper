@@ -5,6 +5,7 @@ import os
 from fileinput import filename
 from _codecs import decode
 import codecs
+import shutil
 '''
 It recives an url
 Reads the source code of the page/s
@@ -93,9 +94,13 @@ def writo_to(filename,text):
     file.write(out.decode('utf-8'))
 
 #Replace URL and pages
-index = get_page("https://www.gamefaqs.com/ps3/643146-final-fantasy-x-x-2-hd-remaster/faqs/69037", 17)
+#If guide only has a single, spaghetti text page, set pages to 0
+index = get_page("URL Goes Here", 0)
 array_of_html = []
 for i in range(len(index)):
     array_of_html.append(parse_content(index[i],i,len(index)))
 to_pdf()
+print('Removing temo folder:')
+shutil.rmtree('temp')
+print('All done!')
 exit()
